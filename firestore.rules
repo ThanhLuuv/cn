@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() { return request.auth != null; }
+    function isAdmin() { 
+      // Dev mode: allow any signed-in user (for initial setup)
+      // Production: uncomment the line below and comment out the return true
+      // return isSignedIn() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+      return isSignedIn(); // TEMPORARY: allow all signed-in users for dev
+    }
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+      // User's sentence progress: users/{uid}/user_sentences/{sentenceId}
+      // Allows querying collection and reading/writing individual progress docs
+      match /user_sentences/{docId} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+    match /sentences/{sid} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /topics/{tid} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    match /admins/{uid} {
+      // Any signed-in user can read admin list (optional); adjust as needed
+      allow read: if isSignedIn();
+      // Bootstrap: allow a signed-in user to create/update their own admin doc
+      allow write: if isSignedIn() && request.auth.uid == uid;
+    }
+  }
+}
+
+

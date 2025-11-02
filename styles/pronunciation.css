@@ -1,0 +1,97 @@
+:root{
+  --bg:#e9d2bd;
+  --card:#f7e7d7;
+  --text:#3b2b22;
+  --sub:#5b4a3f;
+  --accent:#0f3046;
+  --accent-dark:#0b2434;
+  --danger:#e53935;
+  --danger-dark:#b71c1c;
+  --speaker:#0e6f79;
+  --divider:#d7bfa6;
+  --radius:28px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background:var(--bg);
+  color:var(--text);
+}
+.prn-wrap{ display:flex; align-items:center; justify-content:center; min-height:calc(100dvh - 56px); padding:12px 0; }
+@media (min-width:640px){ .prn-wrap{ min-height:calc(100dvh - 72px); } }
+
+/* Confetti squares */
+.confetti-layer{ position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.confetti-square{ position:absolute; width:8px; height:8px; background:#22c55e; opacity:0; transform: translate(0,0) rotate(0deg) scale(.8); border-radius:2px; animation: confetti-pop var(--dur,1200ms) ease-out var(--delay,0ms) forwards; box-shadow: 0 0 0 1px rgba(0,0,0,.04) inset; }
+@keyframes confetti-pop{ 0%{ opacity:0; transform: translate(0,0) rotate(0deg) scale(.4);} 15%{ opacity:1; } 100%{ opacity:0; transform: translate(var(--dx, 0px), var(--dy, -120px)) rotate(var(--rot, 90deg)) scale(1); } }
+.container{ width:min(960px, 92vw); }
+header{ 
+  font-weight:800; 
+  font-size:clamp(20px, 3.2vw, 36px);
+  letter-spacing:.3px; margin-bottom:18px;
+}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:28px clamp(20px, 5vw, 40px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.06);
+  position:relative;
+}
+.message{
+  display:grid; grid-template-columns:1fr auto; gap:16px; align-items:flex-start;
+}
+.en{
+  font-weight:800;
+  font-size: clamp(26px, 4.5vw, 52px);
+  line-height:1.12; margin:0 0 14px;
+  word-break:break-word;
+}
+.ipa{
+  margin:0; font-size: clamp(18px, 2.4vw, 26px); line-height:1.35; color:var(--sub);
+}
+.speak-btn{ 
+  width:44px; height:44px; border-radius:999px; border:none; cursor:pointer; background:transparent; display:grid; place-items:center;
+}
+.speak-btn svg{ width:26px; height:26px; fill:var(--speaker); }
+.speak-btn:active{ transform:scale(.96); }
+.controls{
+  display:flex; align-items:center; justify-content:center; flex-direction:column; gap:12px;
+  margin:38px auto 0; width:100%;
+}
+.mic-wrap{ display:flex; justify-content:center; }
+.mic{
+  --size: 160px;
+  width:var(--size); height:var(--size);
+  border:none; outline:none; border-radius:50%;
+  cursor:pointer; position:relative;
+  display:grid; place-items:center;
+  background:var(--accent);
+  color:#fff;
+  box-shadow: 0 18px 0 var(--accent-dark), 0 28px 48px rgba(0,0,0,.35) inset, 0 10px 28px rgba(0,0,0,.25);
+  transition: transform .08s ease, box-shadow .08s ease, background .08s ease;
+}
+.mic svg{ width:60px; height:60px; color:#fff; }
+.mic:active{ transform: translateY(6px); box-shadow: 0 12px 0 var(--accent-dark), 0 16px 28px rgba(0,0,0,.30) inset; }
+.mic.recording{ background:var(--danger); box-shadow: 0 18px 0 var(--danger-dark), 0 28px 48px rgba(0,0,0,.35) inset, 0 10px 28px rgba(0,0,0,.25); }
+.mic.recording:active{ transform: translateY(6px); box-shadow: 0 12px 0 var(--danger-dark), 0 16px 28px rgba(0,0,0,.30) inset; }
+.pulse::after{
+  content:""; position:absolute; inset:0; border-radius:50%; pointer-events:none;
+  box-shadow:0 0 0 0 rgba(229,57,53,.45);
+  animation: none;
+}
+/* disable ripple effect */
+.recording.pulse::after{ animation: none; box-shadow: none; }
+@keyframes pulse{ 0%{ box-shadow:0 0 0 0 rgba(229,57,53,.45);} 70%{box-shadow:0 0 0 22px rgba(229,57,53,0);} 100%{box-shadow:0 0 0 0 rgba(229,57,53,0);} }
+.timer{ font-variant-numeric: tabular-nums; letter-spacing:.5px; font-weight:700; }
+.nav{ margin-top:26px; display:flex; justify-content:space-between; align-items:center; }
+.icon-btn{
+  width:56px; height:56px; border-radius:16px; border:none; cursor:pointer; background:#f3dcc6; display:grid; place-items:center;
+  box-shadow: 0 6px 0 #d6b695, 0 10px 20px rgba(0,0,0,.15);
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+.icon-btn svg{ width:24px; height:24px; fill:var(--text); }
+.icon-btn:active{ transform: translateY(3px); box-shadow: 0 3px 0 #d6b695, 0 6px 12px rgba(0,0,0,.12); }
+@media (max-width:520px){ .mic{ --size:132px;} }
+
+
