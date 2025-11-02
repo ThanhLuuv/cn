@@ -23,7 +23,7 @@ export default function PracticePage() {
             setTopic(name);
           } else {
             // Fallback: format topic key nicely
-            const pretty = firstTopicKey.replace(/[-_]/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
+            const pretty = firstTopicKey.replace(/[-_]/g, ' ').replace(/\b\w/g, (m: string) => m.toUpperCase());
             setTopic(pretty);
           }
         }).catch((e) => {

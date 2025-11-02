@@ -43,7 +43,7 @@ export default function AdminPage() {
         key = slugify(pinyin);
       } else if (zh) {
         // Use simple hash of zh text for uniqueness
-        const hash = zh.split('').reduce((acc, char) => {
+        const hash = zh.split('').reduce((acc: number, char: string) => {
           const code = char.charCodeAt(0);
           return ((acc << 5) - acc) + code;
         }, 0);
@@ -140,7 +140,7 @@ export default function AdminPage() {
                   key = slugify(s.pinyin);
                 } else if (s.zh) {
                   // Use simple hash of zh text for uniqueness
-                  const hash = s.zh.split('').reduce((acc, char) => {
+                  const hash = s.zh.split('').reduce((acc: number, char: string) => {
                     const code = char.charCodeAt(0);
                     return ((acc << 5) - acc) + code;
                   }, 0);
