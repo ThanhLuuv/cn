@@ -54,7 +54,7 @@ export async function assessPronunciation(referenceText: string, locale: string 
     accuracy: Number(paResult.accuracyScore || 0),
     fluency: Number(paResult.fluencyScore || 0),
     completeness: Number(paResult.completenessScore || 0),
-    raw: JSON.parse(result.properties.get(sdk.PropertyId.SpeechServiceResponse_JsonResult) || '{}'),
+    raw: JSON.parse((result.properties as any).get?.(sdk.PropertyId.SpeechServiceResponse_JsonResult) || '{}'),
   };
 
   recognizer.close();
@@ -63,7 +63,9 @@ export async function assessPronunciation(referenceText: string, locale: string 
 export async function assessPronunciationFromWav(referenceText: string, wavData: ArrayBuffer, locale: string = 'zh-CN'): Promise<AzureAssessResult> {
   const speechConfig = await getSpeechConfig();
   speechConfig.speechRecognitionLanguage = locale;
-  const audioConfig = sdk.AudioConfig.fromWavFileInput(wavData);
+  // Convert ArrayBuffer to Buffer for SDK compatibility
+  const buffer = Buffer.from(wavData);
+  const audioConfig = sdk.AudioConfig.fromWavFileInput(buffer as any);
   const recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
   const paConfig = new sdk.PronunciationAssessmentConfig(
     referenceText,
@@ -84,7 +86,7 @@ export async function assessPronunciationFromWav(referenceText: string, wavData:
     accuracy: Number(paResult.accuracyScore || 0),
     fluency: Number(paResult.fluencyScore || 0),
     completeness: Number(paResult.completenessScore || 0),
-    raw: JSON.parse(result.properties.get(sdk.PropertyId.SpeechServiceResponse_JsonResult) || '{}'),
+    raw: JSON.parse((result.properties as any).get?.(sdk.PropertyId.SpeechServiceResponse_JsonResult) || '{}'),
   };
   recognizer.close();
   return out;
@@ -125,7 +127,7 @@ export function createPronunciationSession(referenceText: string, locale: string
           accuracy: Number(pa.accuracyScore || 0),
           fluency: Number(pa.fluencyScore || 0),
           completeness: Number(pa.completenessScore || 0),
-          raw: JSON.parse(res.properties.get(sdk.PropertyId.SpeechServiceResponse_JsonResult) || '{}'),
+          raw: JSON.parse((res.properties as any).get?.(sdk.PropertyId.SpeechServiceResponse_JsonResult) || '{}'),
         };
       } catch {
         last = {
