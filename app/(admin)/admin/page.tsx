@@ -175,6 +175,33 @@ export default function AdminPage() {
       </section>
 
       <section className="mt-6 rounded-2xl border p-4">
+        <h3 className="font-semibold">Xuất toàn bộ câu (JSON)</h3>
+        <p className="mt-1 text-sm text-gray-600">Tải tất cả documents trong collection <code>sentences</code> thành tệp JSON.</p>
+        <button
+          onClick={async () => {
+            try {
+              const snap = await getDocs(query(collection(db, 'sentences')));
+              const rows = snap.docs.map(d => ({ id: d.id, ...(d.data() as any) }));
+              const blob = new Blob([JSON.stringify(rows, null, 2)], { type: 'application/json;charset=utf-8' });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement('a');
+              a.href = url;
+              a.download = `sentences-export-${new Date().toISOString().slice(0,10)}.json`;
+              document.body.appendChild(a);
+              a.click();
+              a.remove();
+              URL.revokeObjectURL(url);
+            } catch (e: any) {
+              alert('Không thể xuất dữ liệu: ' + (e?.message || 'Unknown'));
+            }
+          }}
+          className="mt-3 rounded bg-emerald-600 px-4 py-2 text-white hover:bg-emerald-700"
+        >
+          Tải tất cả sentences
+        </button>
+      </section>
+
+      <section className="mt-6 rounded-2xl border p-4">
         <h3 className="font-semibold">Thêm câu</h3>
         <div className="mt-3 grid gap-2">
           <input className="rounded border p-2" placeholder="Topic (key)" value={topic} onChange={e => setTopic(e.target.value)} />

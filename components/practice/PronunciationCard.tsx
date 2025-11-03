@@ -288,6 +288,15 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
         <div
           className="fixed inset-0 z-50 grid place-items-center backdrop-blur-lg backdrop-saturate-150"
           style={{ background: 'rgba(0,0,0,.7)' }}
+          onClick={() => {
+            setShowOverlay(false);
+            setAzureScore(null);
+            setMetrics(null);
+            setWordResults([]);
+            setConfetti([]);
+            // Chuyển sang câu tiếp theo trong bộ 10 câu của ngày
+            setIdx((idx + 1) % dailyData.length);
+          }}
           role="dialog"
           aria-modal="true"
         >
@@ -327,35 +336,7 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
                 })}
               </div>
             ) : null}
-            <div className="mt-6 flex items-center justify-center gap-3">
-              <button
-                className="rounded-lg bg-white/15 px-4 py-2 text-sm font-semibold text-white hover:bg-white/25"
-                onClick={() => {
-                  // Đóng overlay để luyện lại câu hiện tại
-                  setShowOverlay(false);
-                  setAzureScore(null);
-                  setMetrics(null);
-                  setWordResults([]);
-                  setConfetti([]);
-                }}
-              >
-                Luyện lại
-              </button>
-              <button
-                className="rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-white hover:brightness-110"
-                onClick={() => {
-                  // Chuyển sang câu tiếp theo trong bộ 10 câu của ngày
-                  setShowOverlay(false);
-                  setAzureScore(null);
-                  setMetrics(null);
-                  setWordResults([]);
-                  setConfetti([]);
-                  setIdx((idx + 1) % dailyData.length);
-                }}
-              >
-                Câu tiếp theo
-              </button>
-            </div>
+            <div className="mt-5 text-sm text-white/80">Nhấn bất kỳ để tiếp tục</div>
           </div>
           <div className="confetti-layer">
             {confetti.map((c, i) => (

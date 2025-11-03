@@ -42,8 +42,15 @@ export const saveUserSentenceProgress = async (uid: string, sentenceId: string, 
 // Fetch user progress for sentences
 export const fetchUserProgress = async (uid: string, sentenceIds: string[]) => {
   if (!sentenceIds.length) return [];
-  const progressDocs = await Promise.all(sentenceIds.map(id => getDoc(doc(db, 'users', uid, 'user_sentences', id))));
-  return progressDocs.map(d => d.exists() ? { sentenceId: d.id, ...d.data() } : null).filter(Boolean) as any[];
+  const out: any[] = [];
+  // Firestore allows up to 10 IDs per 'in' query
+  for (let i = 0; i < sentenceIds.length; i += 10) {
+    const slice = sentenceIds.slice(i, i + 10);
+    const qy = query(collection(db, 'users', uid, 'user_sentences'), where('__name__', 'in', slice as any));
+    const snap = await getDocs(qy);
+    snap.docs.forEach(d => out.push({ sentenceId: d.id, ...d.data() }));
+  }
+  return out;
 };
 
 // Fetch yesterday's practiced sentences (doc ID is sentenceId)

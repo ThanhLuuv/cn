@@ -1,0 +1,1002 @@
+[
+  {
+    "id": "0Oho5CbiCbebhap9ciVq",
+    "level": 1,
+    "pinyin": "Wǒ xǐhuan yùndòng.",
+    "topic": "daily-life",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/wo-xihuan-yundong.mp3",
+    "createdAt": 1762097378927,
+    "zh": "我喜欢运动。",
+    "vi": "Tôi thích vận động."
+  },
+  {
+    "id": "0t64K3fLXGXSr3Uhowzm",
+    "level": 1,
+    "pinyin": "Qǐng kuài yìdiǎn.",
+    "vi": "Làm nhanh một chút.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/qing-kuai-yidian.mp3",
+    "zh": "请快一点。",
+    "createdAt": 1762097438590,
+    "topic": "restaurant"
+  },
+  {
+    "id": "1ByDv7INz1yCaglQprXL",
+    "level": 1,
+    "topic": "restaurant",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/qing-shao-yan.mp3",
+    "pinyin": "Qǐng shǎo yán.",
+    "createdAt": 1762097429467,
+    "vi": "Xin ít muối.",
+    "zh": "请少盐。"
+  },
+  {
+    "id": "1miY7bG8Fb1VElFUGWbi",
+    "zh": "下午好！",
+    "vi": "Chào buổi chiều!",
+    "pinyin": "Xiàwǔ hǎo!",
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/xiawu-hao.mp3",
+    "topic": "greetings",
+    "createdAt": 1762097316386
+  },
+  {
+    "id": "3ULdnSpMlrFP9Me1P5i6",
+    "zh": "可以刷卡吗？",
+    "pinyin": "Kěyǐ shuākǎ ma?",
+    "vi": "Có quẹt thẻ được không?",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/keyi-shuaka-ma.mp3",
+    "topic": "shopping",
+    "createdAt": 1762097403930,
+    "level": 1
+  },
+  {
+    "id": "44tTK8WpANHTYROUAZEi",
+    "level": 1,
+    "createdAt": 1762097400073,
+    "topic": "shopping",
+    "zh": "我试试可以吗？",
+    "vi": "Tôi thử được không?",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/wo-shishi-keyi-ma.mp3",
+    "pinyin": "Wǒ shìshi kěyǐ ma?"
+  },
+  {
+    "id": "4ARMbTRVxYZKNqKBGMM2",
+    "zh": "我在等公交。",
+    "level": 1,
+    "pinyin": "Wǒ zài děng gōngjiāo.",
+    "vi": "Tôi đang đợi xe buýt.",
+    "createdAt": 1762097383711,
+    "topic": "daily-life",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/wo-zai-deng-gongjiao.mp3"
+  },
+  {
+    "id": "5IxABZKztUWqBFVaDBOw",
+    "pinyin": "Yǒu sùcài ma?",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/you-sucai-ma.mp3",
+    "topic": "restaurant",
+    "createdAt": 1762097439729,
+    "zh": "有素菜吗？",
+    "vi": "Có món chay không?",
+    "level": 1
+  },
+  {
+    "id": "5bFY2QgCWNMwwuhDXtDh",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/shouyintai-zai-nali.mp3",
+    "vi": "Quầy thu ngân ở đâu?",
+    "topic": "shopping",
+    "createdAt": 1762097412676,
+    "level": 1,
+    "pinyin": "Shōuyíntái zài nǎlǐ?",
+    "zh": "收银台在哪里？"
+  },
+  {
+    "id": "5pPXrfLU0Ik04DTAljyG",
+    "zh": "这个多少钱？",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/zhege-duoshao-qian.mp3",
+    "pinyin": "Zhège duōshǎo qián?",
+    "createdAt": 1762097395259,
+    "vi": "Cái này bao nhiêu tiền?",
+    "level": 1,
+    "topic": "shopping"
+  },
+  {
+    "id": "6E8cVuxdKNxvTkPFlL1O",
+    "vi": "Cho một ly nước.",
+    "createdAt": 1762097432676,
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/lai-yi-bei-shui.mp3",
+    "pinyin": "Lái yì bēi shuǐ.",
+    "topic": "restaurant",
+    "zh": "来一杯水。"
+  },
+  {
+    "id": "6bqnPI6xKpEOYxKa3GH9",
+    "zh": "这是我的朋友。",
+    "createdAt": 1762097343967,
+    "topic": "introductions",
+    "level": 1,
+    "pinyin": "Zhè shì wǒ de péngyou.",
+    "vi": "Đây là bạn tôi.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/zhe-shi-wo-de-pengyou.mp3"
+  },
+  {
+    "id": "6y3UMDml0hDBI2SoSjxf",
+    "topic": "shopping",
+    "level": 1,
+    "createdAt": 1762097411468,
+    "zh": "我可以退货吗？",
+    "vi": "Tôi có thể trả hàng không?",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/wo-keyi-tuihuo-ma.mp3",
+    "pinyin": "Wǒ kěyǐ tuìhuò ma?"
+  },
+  {
+    "id": "8Z5EbE5lSPXTd0qoDYFR",
+    "vi": "Hôm nay rất bận.",
+    "topic": "daily-life",
+    "createdAt": 1762097374870,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/jintian-hen-mang.mp3",
+    "level": 1,
+    "pinyin": "Jīntiān hěn máng.",
+    "zh": "今天很忙。"
+  },
+  {
+    "id": "9XSUePrJWYN2pLrsaKyN",
+    "zh": "今天下雨了。",
+    "vi": "Hôm nay mưa rồi.",
+    "topic": "daily-life",
+    "level": 1,
+    "createdAt": 1762097385015,
+    "pinyin": "Jīntiān xiàyǔ le.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/jintian-xiayu-le.mp3"
+  },
+  {
+    "id": "AQJ5RE1Vc6h41wg0cDW0",
+    "level": 1,
+    "vi": "Chúng ta giữ liên lạc nhé.",
+    "pinyin": "Wǒmen bǎochí liánxì.",
+    "zh": "我们保持联系。",
+    "topic": "introductions",
+    "createdAt": 1762097363786,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/women-baochi-lianxi.mp3"
+  },
+  {
+    "id": "BrqLLWQvbBA25HouGeK4",
+    "topic": "shopping",
+    "level": 1,
+    "zh": "这是新款。",
+    "createdAt": 1762097410192,
+    "vi": "Đây là mẫu mới.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/zhe-shi-xinkuan.mp3",
+    "pinyin": "Zhè shì xīnkuǎn."
+  },
+  {
+    "id": "CYjjopUPlb5BKxohwrfj",
+    "createdAt": 1762097406345,
+    "vi": "Cảm ơn đã mua hàng.",
+    "pinyin": "Xièxie huìgù.",
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/xiexie-huigu.mp3",
+    "zh": "谢谢惠顾。",
+    "topic": "shopping"
+  },
+  {
+    "id": "Cncy809O9ZIDGMzMBssX",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/xiexie-zhaodai.mp3",
+    "zh": "谢谢招待。",
+    "level": 1,
+    "vi": "Cảm ơn đã chiêu đãi.",
+    "topic": "restaurant",
+    "pinyin": "Xièxie zhāodài.",
+    "createdAt": 1762097448729
+  },
+  {
+    "id": "D5Zux9RUuMN3JOtWRyo1",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/zai-gei-wo-yige-ba.mp3",
+    "zh": "再给我一个吧。",
+    "level": 1,
+    "pinyin": "Zài gěi wǒ yíge ba.",
+    "createdAt": 1762097408879,
+    "topic": "shopping",
+    "vi": "Cho tôi thêm một cái."
+  },
+  {
+    "id": "DQfnPxMBoNhK7u5KCPal",
+    "vi": "Xin cho tôi hóa đơn.",
+    "topic": "restaurant",
+    "createdAt": 1762097445947,
+    "pinyin": "Qǐng gěi wǒ fāpiào.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/qing-gei-wo-fapiao.mp3",
+    "level": 1,
+    "zh": "请给我发票。"
+  },
+  {
+    "id": "DV3lrM6wTG5DAqT6afw2",
+    "topic": "daily-life",
+    "zh": "我在学习中文。",
+    "createdAt": 1762097389780,
+    "pinyin": "Wǒ zài xuéxí Zhōngwén.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/wo-zai-xuexi-zhongwen.mp3",
+    "level": 1,
+    "vi": "Tôi đang học tiếng Trung."
+  },
+  {
+    "id": "DV96Q4AEmfT3VUvYcEU9",
+    "topic": "restaurant",
+    "level": 1,
+    "zh": "有什么特色菜？",
+    "vi": "Có món đặc sản gì?",
+    "createdAt": 1762097444701,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/you-shenme-tese-cai.mp3",
+    "pinyin": "Yǒu shénme tèsè cài?"
+  },
+  {
+    "id": "DVdx7w1OipQM4NnVjK4E",
+    "topic": "introductions",
+    "vi": "Tôi là sinh viên.",
+    "zh": "我是一名学生。",
+    "pinyin": "Wǒ shì yì míng xuéshēng.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/wo-shi-yi-ming-xuesheng.mp3",
+    "level": 1,
+    "createdAt": 1762097351444
+  },
+  {
+    "id": "E6ZWQFepWUOjyEsrJlzm",
+    "topic": "daily-life",
+    "level": 1,
+    "vi": "Tôi đi làm.",
+    "zh": "我去上班。",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/wo-qu-shangban.mp3",
+    "createdAt": 1762097373785,
+    "pinyin": "Wǒ qù shàngbān."
+  },
+  {
+    "id": "Gdw50GFE4acKx7sEKHAX",
+    "pinyin": "Wǒ láizì Yuènán.",
+    "vi": "Tôi đến từ Việt Nam.",
+    "topic": "introductions",
+    "level": 1,
+    "zh": "我来自越南。",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/wo-laizi-yuenan.mp3",
+    "createdAt": 1762097342729
+  },
+  {
+    "id": "HQvnWShYvI1RIdjEzeWZ",
+    "createdAt": 1762097354005,
+    "vi": "Chúng tôi mới quen.",
+    "pinyin": "Wǒmen gāng rènshi.",
+    "zh": "我们刚认识。",
+    "level": 1,
+    "topic": "introductions",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/women-gang-renshi.mp3"
+  },
+  {
+    "id": "IB4jJLxXFbAAx8TIsVlO",
+    "topic": "greetings",
+    "level": 1,
+    "vi": "Thượng lộ bình an.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/yilu-pingan.mp3",
+    "createdAt": 1762097338776,
+    "pinyin": "Yílù píng'ān.",
+    "zh": "一路平安。"
+  },
+  {
+    "id": "IZ5fEoO9CFWaXqBsdKEq",
+    "topic": "greetings",
+    "pinyin": "Qǐng jìn.",
+    "createdAt": 1762097328816,
+    "level": 1,
+    "vi": "Mời vào.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/qing-jin.mp3",
+    "zh": "请进。"
+  },
+  {
+    "id": "JUd08uAEP6BzTD3Lgx3f",
+    "pinyin": "Kěyǐ piányi yìdiǎn ma?",
+    "vi": "Có rẻ hơn chút không?",
+    "zh": "可以便宜一点吗？",
+    "topic": "shopping",
+    "createdAt": 1762097396482,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/keyi-pianyi-yidian-ma.mp3",
+    "level": 1
+  },
+  {
+    "id": "JdYIIYg4MJQqgjaszPKX",
+    "pinyin": "Qǐng bāng wǒ yíxià.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/qing-bang-wo-yixia.mp3",
+    "level": 1,
+    "topic": "daily-life",
+    "zh": "请帮我一下。",
+    "vi": "Xin giúp tôi một chút.",
+    "createdAt": 1762097388647
+  },
+  {
+    "id": "MWlDwFdDQqQWkzuV22DU",
+    "topic": "restaurant",
+    "createdAt": 1762097440902,
+    "pinyin": "Bú yào xiāngcài.",
+    "zh": "不要香菜。",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/bu-yao-xiangcai.mp3",
+    "level": 1,
+    "vi": "Đừng cho rau mùi."
+  },
+  {
+    "id": "Md4xmRnZzceg1xwEljyo",
+    "createdAt": 1762097377768,
+    "zh": "我们一起做饭吧。",
+    "topic": "daily-life",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/women-yiqi-zuofan-ba.mp3",
+    "level": 1,
+    "vi": "Cùng nấu ăn nhé.",
+    "pinyin": "Wǒmen yìqǐ zuòfàn ba."
+  },
+  {
+    "id": "N72chEqOs5ScHvuDO4QC",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/wo-ershiwu-sui.mp3",
+    "vi": "Tôi 25 tuổi.",
+    "topic": "introductions",
+    "zh": "我二十五岁。",
+    "pinyin": "Wǒ èrshíwǔ suì.",
+    "createdAt": 1762097348575,
+    "level": 1
+  },
+  {
+    "id": "NKExW5tYqYqAycKHjmqF",
+    "topic": "restaurant",
+    "vi": "Xin gợi ý món.",
+    "pinyin": "Tuījiàn yíxià ba.",
+    "createdAt": 1762097425375,
+    "zh": "推荐一下吧。",
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/tuijian-yixia-ba.mp3"
+  },
+  {
+    "id": "OJ1hRagEmpAexc9SpoJh",
+    "pinyin": "Wèidào hěn hǎo.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/weidao-hen-hao.mp3",
+    "createdAt": 1762097435903,
+    "topic": "restaurant",
+    "level": 1,
+    "vi": "Hương vị rất ngon.",
+    "zh": "味道很好。"
+  },
+  {
+    "id": "OqWiupiEWlkrbaudSHfO",
+    "createdAt": 1762097413897,
+    "pinyin": "Qǐng kāi fāpiào.",
+    "vi": "Xin xuất hóa đơn.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/qing-kai-fapiao.mp3",
+    "zh": "请开发票。",
+    "level": 1,
+    "topic": "shopping"
+  },
+  {
+    "id": "OqxUTvuAY6vEB1258qCW",
+    "zh": "早上好！",
+    "pinyin": "Zǎoshang hǎo!",
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/zaoshang-hao.mp3",
+    "vi": "Chào buổi sáng!",
+    "createdAt": 1762097314004,
+    "topic": "greetings"
+  },
+  {
+    "id": "PZnOixVwAP0RL5hw08f2",
+    "topic": "daily-life",
+    "createdAt": 1762097376357,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/xiaban-jian.mp3",
+    "vi": "Gặp sau giờ làm.",
+    "zh": "下班见。",
+    "pinyin": "Xiàbān jiàn.",
+    "level": 1
+  },
+  {
+    "id": "QfT9IB7ufelogbDIF7A6",
+    "createdAt": 1762097318341,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/wanshang-hao.mp3",
+    "zh": "晚上好！",
+    "level": 1,
+    "pinyin": "Wǎnshang hǎo!",
+    "vi": "Chào buổi tối!",
+    "topic": "greetings"
+  },
+  {
+    "id": "RBFFgUirxvfJpGj9jcNm",
+    "topic": "greetings",
+    "level": 1,
+    "createdAt": 1762097327318,
+    "pinyin": "Qǐng.",
+    "vi": "Mời/ Xin mời.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/qing.mp3",
+    "zh": "请。"
+  },
+  {
+    "id": "RvF0r6Qp69xqk6A3WuBl",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/keyi-dabao-ma.mp3",
+    "zh": "可以打包吗？",
+    "vi": "Có thể gói mang về không?",
+    "level": 1,
+    "pinyin": "Kěyǐ dǎbāo ma?",
+    "topic": "restaurant",
+    "createdAt": 1762097434523
+  },
+  {
+    "id": "SFtAmD1iVeWRlZd8CZe3",
+    "pinyin": "Bú yào tài là.",
+    "vi": "Đừng quá cay.",
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/bu-yao-tai-la.mp3",
+    "topic": "restaurant",
+    "zh": "不要太辣。",
+    "createdAt": 1762097428109
+  },
+  {
+    "id": "SJhSXmqxInawViIvFfsG",
+    "vi": "Tính tiền.",
+    "zh": "买单。",
+    "pinyin": "Mǎidān.",
+    "level": 1,
+    "createdAt": 1762097437144,
+    "topic": "restaurant",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/maidan.mp3"
+  },
+  {
+    "id": "TqEH3OI0zw5u1gEjYUlN",
+    "vi": "Cho thêm cơm.",
+    "topic": "restaurant",
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/zai-jia-dian-mifan.mp3",
+    "zh": "再加点米饭。",
+    "createdAt": 1762097442234,
+    "pinyin": "Zài jiā diǎn mǐfàn."
+  },
+  {
+    "id": "Trj7edYpiKQHVXa2Qb9N",
+    "topic": "greetings",
+    "zh": "你好！",
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/ni-hao.mp3",
+    "createdAt": 1762097312416,
+    "pinyin": "Nǐ hǎo!",
+    "vi": "Xin chào!"
+  },
+  {
+    "id": "UD6VPSxa0uFoh1WkNoMT",
+    "vi": "Cho hai đôi đũa.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/lai-liang-shuang-kuaizi.mp3",
+    "pinyin": "Lái liǎng shuāng kuàizi.",
+    "topic": "restaurant",
+    "createdAt": 1762097443498,
+    "zh": "来两双筷子。",
+    "level": 1
+  },
+  {
+    "id": "UODlo9IH3gmD6j77di81",
+    "vi": "Ngày mai nghỉ.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/mingtian-fangjia.mp3",
+    "pinyin": "Míngtiān fàngjià.",
+    "topic": "daily-life",
+    "createdAt": 1762097386149,
+    "level": 1,
+    "zh": "明天放假。"
+  },
+  {
+    "id": "WMhD9E7yVWaHvpUcmaSW",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/xinghui.mp3",
+    "topic": "greetings",
+    "createdAt": 1762097337579,
+    "pinyin": "Xìnghuì!",
+    "level": 1,
+    "zh": "幸会！",
+    "vi": "Hân hạnh!"
+  },
+  {
+    "id": "WYoLlk62qkMrYilbn4PJ",
+    "zh": "保重身体。",
+    "createdAt": 1762097394018,
+    "pinyin": "Bǎozhòng shēntǐ.",
+    "vi": "Giữ gìn sức khỏe.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/baozhong-shenti.mp3",
+    "level": 1,
+    "topic": "daily-life"
+  },
+  {
+    "id": "XjNmjleqb7PNFzzMtxLk",
+    "pinyin": "Kěyǐ jiā Wēixìn ma?",
+    "zh": "可以加微信吗？",
+    "topic": "introductions",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/keyi-jia-weixin-ma.mp3",
+    "createdAt": 1762097362223,
+    "level": 1,
+    "vi": "Có thể kết bạn WeChat không?"
+  },
+  {
+    "id": "XpkfzoOjoAB1bsvJL2XS",
+    "createdAt": 1762097366996,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/qing-duo-guanzhao.mp3",
+    "level": 1,
+    "vi": "Mong được giúp đỡ.",
+    "zh": "请多关照。",
+    "pinyin": "Qǐng duō guānzhào.",
+    "topic": "introductions"
+  },
+  {
+    "id": "XzxP2ADnJwMq75xfp1Qm",
+    "topic": "introductions",
+    "createdAt": 1762097359607,
+    "zh": "我会说一点中文。",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/wo-hui-shuo-yidian-zhongwen.mp3",
+    "level": 1,
+    "vi": "Tôi biết nói chút tiếng Trung.",
+    "pinyin": "Wǒ huì shuō yìdiǎn Zhōngwén."
+  },
+  {
+    "id": "YDFmwMu6iQlgqdJJDSR5",
+    "createdAt": 1762097331982,
+    "level": 1,
+    "zh": "请慢用。",
+    "pinyin": "Qǐng màn yòng.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/qing-man-yong.mp3",
+    "vi": "Mời dùng bữa.",
+    "topic": "greetings"
+  },
+  {
+    "id": "YPvD0od0fJw9kKtN7x5z",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/gaitian-jian.mp3",
+    "zh": "改天见。",
+    "vi": "Hẹn hôm khác gặp.",
+    "topic": "introductions",
+    "pinyin": "Gǎitiān jiàn.",
+    "createdAt": 1762097368323,
+    "level": 1
+  },
+  {
+    "id": "YRpC7bTt4PDJoIa7wS7p",
+    "zh": "我要看收据。",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/wo-yao-kan-shouju.mp3",
+    "topic": "shopping",
+    "level": 1,
+    "vi": "Tôi muốn xem biên lai.",
+    "createdAt": 1762097422430,
+    "pinyin": "Wǒ yào kàn shōujù."
+  },
+  {
+    "id": "YWqL1ByryDXxpFW30Fsr",
+    "zh": "来一碗米饭。",
+    "level": 1,
+    "createdAt": 1762097431040,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/lai-yi-wan-mifan.mp3",
+    "pinyin": "Lái yì wǎn mǐfàn.",
+    "topic": "restaurant",
+    "vi": "Cho một bát cơm."
+  },
+  {
+    "id": "YZkaY1EgJPWTKw4WxPzW",
+    "zh": "我叫明安。",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/wo-jiao-mingan.mp3",
+    "pinyin": "Wǒ jiào Míng'ān.",
+    "createdAt": 1762097341236,
+    "topic": "introductions",
+    "vi": "Tôi tên là Minh An.",
+    "level": 1
+  },
+  {
+    "id": "Ymu3Tzsi5fK0Gxcq0KvC",
+    "vi": "Tôi muốn món này.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/wo-yao-zhege.mp3",
+    "level": 1,
+    "pinyin": "Wǒ yào zhège.",
+    "createdAt": 1762097426681,
+    "zh": "我要这个。",
+    "topic": "restaurant"
+  },
+  {
+    "id": "Yvg3NPPS8VEstGkrMkvX",
+    "pinyin": "Bú kèqi.",
+    "topic": "greetings",
+    "zh": "不客气。",
+    "createdAt": 1762097323692,
+    "vi": "Không có gì.",
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/bu-keqi.mp3"
+  },
+  {
+    "id": "ZqtbQXwE5sdGZqTsvi7d",
+    "level": 1,
+    "zh": "请给我菜单。",
+    "createdAt": 1762097424010,
+    "pinyin": "Qǐng gěi wǒ càidān.",
+    "topic": "restaurant",
+    "vi": "Làm ơn đưa tôi thực đơn.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/qing-gei-wo-caidan.mp3"
+  },
+  {
+    "id": "ZyZRwUgsZibA7Ng3nenN",
+    "createdAt": 1762097350015,
+    "vi": "Tôi làm việc ở Hà Nội.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/wo-zai-henei-gongzuo.mp3",
+    "topic": "introductions",
+    "zh": "我在河内工作。",
+    "level": 1,
+    "pinyin": "Wǒ zài Hénèi gōngzuò."
+  },
+  {
+    "id": "aJsSrjBTXAAz99EHfma2",
+    "createdAt": 1762097450420,
+    "zh": "下次再来。",
+    "level": 1,
+    "pinyin": "Xià cì zài lái.",
+    "vi": "Lần sau lại đến.",
+    "topic": "restaurant",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/xia-ci-zai-lai.mp3"
+  },
+  {
+    "id": "c8zhkWpEKra2qYnzWw67",
+    "vi": "Cảm ơn bạn.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/xiexie-ni.mp3",
+    "zh": "谢谢你。",
+    "level": 1,
+    "pinyin": "Xièxie nǐ.",
+    "createdAt": 1762097322384,
+    "topic": "greetings"
+  },
+  {
+    "id": "coiCdD7iu97eC6f0rtC0",
+    "pinyin": "Chūcì jiànmiàn, qǐng duō guānzhào.",
+    "level": 1,
+    "vi": "Lần đầu gặp, mong được giúp đỡ.",
+    "createdAt": 1762097336329,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/chuci-jianmian-qing-duo-guanzhao.mp3",
+    "topic": "greetings",
+    "zh": "初次见面，请多关照。"
+  },
+  {
+    "id": "d5YtexHALoyemRKklUc3",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/xuyao-gouwudai-ma.mp3",
+    "createdAt": 1762097405230,
+    "topic": "shopping",
+    "vi": "Cần túi mua sắm không?",
+    "level": 1,
+    "pinyin": "Xūyào gòuwùdài ma?",
+    "zh": "需要购物袋吗？"
+  },
+  {
+    "id": "dvbNuqy0JaiSim9v7n2D",
+    "topic": "shopping",
+    "level": 1,
+    "pinyin": "Wǒ zhǐ kànkan.",
+    "createdAt": 1762097397845,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/wo-zhi-kankan.mp3",
+    "vi": "Tôi chỉ xem thôi.",
+    "zh": "我只看看。"
+  },
+  {
+    "id": "eh8HFlk0K1eCVNSSkALc",
+    "level": 1,
+    "createdAt": 1762097324946,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/duibuqi.mp3",
+    "topic": "greetings",
+    "zh": "对不起。",
+    "pinyin": "Duìbuqǐ.",
+    "vi": "Xin lỗi."
+  },
+  {
+    "id": "emcPzuLJDigPIakEf9AH",
+    "topic": "shopping",
+    "createdAt": 1762097398890,
+    "zh": "有别的颜色吗？",
+    "pinyin": "Yǒu bié de yánsè ma?",
+    "vi": "Có màu khác không?",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/you-bie-de-yanse-ma.mp3",
+    "level": 1
+  },
+  {
+    "id": "fFhbavKoagwcqp36FvP1",
+    "topic": "greetings",
+    "zh": "再见！",
+    "createdAt": 1762097319649,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/zaijian.mp3",
+    "vi": "Tạm biệt!",
+    "pinyin": "Zàijiàn!",
+    "level": 1
+  },
+  {
+    "id": "fsX8hVgvyvPeAsmw9iBP",
+    "topic": "daily-life",
+    "zh": "周末见面吧。",
+    "createdAt": 1762097387331,
+    "vi": "Cuối tuần gặp nhé.",
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/zhoumo-jianmian-ba.mp3",
+    "pinyin": "Zhōumò jiànmiàn ba."
+  },
+  {
+    "id": "i5o0tBRMnPY84VMD5piP",
+    "level": 1,
+    "vi": "Bây giờ mấy giờ?",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/xianzai-ji-dian.mp3",
+    "pinyin": "Xiànzài jǐ diǎn?",
+    "createdAt": 1762097369706,
+    "zh": "现在几点？",
+    "topic": "daily-life"
+  },
+  {
+    "id": "i8aTDCQSEbjS7slKjT1z",
+    "topic": "shopping",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/wo-mai-zhege.mp3",
+    "createdAt": 1762097402507,
+    "zh": "我买这个。",
+    "vi": "Tôi mua cái này.",
+    "level": 1,
+    "pinyin": "Wǒ mǎi zhège."
+  },
+  {
+    "id": "ies8xJXzqJycLPd8zuRr",
+    "createdAt": 1762097334821,
+    "pinyin": "Wǒ hěn hǎo, xièxie.",
+    "vi": "Tôi khỏe, cảm ơn.",
+    "level": 1,
+    "zh": "我很好，谢谢。",
+    "topic": "greetings",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/wo-hen-hao-xiexie.mp3"
+  },
+  {
+    "id": "kMmBuStXUFRlWKnmYK2b",
+    "topic": "greetings",
+    "vi": "Không sao.",
+    "createdAt": 1762097326074,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/mei-guanxi.mp3",
+    "level": 1,
+    "pinyin": "Méi guānxi.",
+    "zh": "没关系。"
+  },
+  {
+    "id": "le0NflmSyitFkSGbEuMc",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/hai-you-xiao-ma-ma.mp3",
+    "zh": "还有小码吗？",
+    "createdAt": 1762097418512,
+    "level": 1,
+    "vi": "Còn size nhỏ không?",
+    "pinyin": "Hái yǒu xiǎo mǎ ma?",
+    "topic": "shopping"
+  },
+  {
+    "id": "mmjHutt3YD5fOq8Nsp71",
+    "topic": "daily-life",
+    "zh": "别忘了带伞。",
+    "pinyin": "Bié wàngle dài sǎn.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/bie-wangle-dai-san.mp3",
+    "createdAt": 1762097382516,
+    "vi": "Đừng quên mang ô.",
+    "level": 1
+  },
+  {
+    "id": "nMdFFUce4NYHmCZNFErQ",
+    "vi": "Cái này rất vừa.",
+    "level": 1,
+    "zh": "这件很合适。",
+    "topic": "shopping",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/zhe-jian-hen-heshi.mp3",
+    "pinyin": "Zhè jiàn hěn héshì.",
+    "createdAt": 1762097415204
+  },
+  {
+    "id": "nbk4ODCPP1OZtrYsGjOn",
+    "topic": "daily-life",
+    "level": 1,
+    "pinyin": "Zǎodiǎn shuì ba.",
+    "zh": "早点睡吧。",
+    "vi": "Ngủ sớm đi.",
+    "createdAt": 1762097392511,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/zaodian-shui-ba.mp3"
+  },
+  {
+    "id": "oEGTZ75LJvEQTQED45IM",
+    "zh": "早点休息吧。",
+    "vi": "Nghỉ sớm nhé.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/zaodian-xiuxi-ba.mp3",
+    "createdAt": 1762097381236,
+    "topic": "daily-life",
+    "pinyin": "Zǎodiǎn xiūxi ba.",
+    "level": 1
+  },
+  {
+    "id": "oGTuEMvVYHlsK5q8gsF9",
+    "vi": "Tôi sống ở đây.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/wo-zhu-zai-zheli.mp3",
+    "pinyin": "Wǒ zhù zài zhèlǐ.",
+    "topic": "introductions",
+    "createdAt": 1762097358261,
+    "level": 1,
+    "zh": "我住在这里。"
+  },
+  {
+    "id": "ovyDOzs7JoiUCAA9TObO",
+    "zh": "认识你很高兴。",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/renshi-ni-hen-gaoxing.mp3",
+    "topic": "introductions",
+    "pinyin": "Rènshi nǐ hěn gāoxìng.",
+    "createdAt": 1762097345075,
+    "vi": "Rất vui được gặp bạn.",
+    "level": 1
+  },
+  {
+    "id": "pEsV9xfknxD2borkcr4t",
+    "vi": "Xin nói chậm một chút.",
+    "zh": "请慢一点说。",
+    "pinyin": "Qǐng màn yìdiǎn shuō.",
+    "topic": "introductions",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/qing-man-yidian-shuo.mp3",
+    "level": 1,
+    "createdAt": 1762097360996
+  },
+  {
+    "id": "q6vjrj9gO3kRncRk13Vc",
+    "zh": "有大一点的吗？",
+    "level": 1,
+    "pinyin": "Yǒu dà yìdiǎn de ma?",
+    "vi": "Có lớn hơn không?",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/you-da-yidian-de-ma.mp3",
+    "topic": "shopping",
+    "createdAt": 1762097401244
+  },
+  {
+    "id": "qMPfK7iA3cg7URcz7R9G",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/qingwen-ni-jiao-shenme-mingzi.mp3",
+    "vi": "Bạn tên là gì?",
+    "pinyin": "Qǐngwèn nǐ jiào shénme míngzi?",
+    "zh": "请问你叫什么名字？",
+    "level": 1,
+    "topic": "introductions",
+    "createdAt": 1762097347172
+  },
+  {
+    "id": "qYBj68sKm2S28zE2UYNI",
+    "level": 1,
+    "pinyin": "Yǒu zhékòu ma?",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/you-zhekou-ma.mp3",
+    "vi": "Có giảm giá không?",
+    "zh": "有折扣吗？",
+    "topic": "shopping",
+    "createdAt": 1762097407665
+  },
+  {
+    "id": "qaH4nLGna4b78FvAIgFX",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/wanshang-sanbu.mp3",
+    "level": 1,
+    "zh": "晚上散步。",
+    "vi": "Tối đi dạo.",
+    "createdAt": 1762097379998,
+    "topic": "daily-life",
+    "pinyin": "Wǎnshang sànbù."
+  },
+  {
+    "id": "qm1o6baZYaV6eB4KzqCc",
+    "level": 1,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/restaurant/fuwu-hen-hao.mp3",
+    "zh": "服务很好。",
+    "createdAt": 1762097447527,
+    "vi": "Phục vụ rất tốt.",
+    "topic": "restaurant",
+    "pinyin": "Fúwù hěn hǎo."
+  },
+  {
+    "id": "s5Qig6QlQc6mjphJiM3n",
+    "topic": "daily-life",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/yiqi-chi-zaofan-ma.mp3",
+    "zh": "一起吃早饭吗？",
+    "level": 1,
+    "pinyin": "Yìqǐ chī zǎofàn ma?",
+    "createdAt": 1762097372466,
+    "vi": "Cùng ăn sáng chứ?"
+  },
+  {
+    "id": "sjQtE9dXAs21nyTzVNxT",
+    "createdAt": 1762097352626,
+    "zh": "我的爱好是看书。",
+    "topic": "introductions",
+    "pinyin": "Wǒ de àihào shì kàn shū.",
+    "level": 1,
+    "vi": "Sở thích của tôi là đọc sách.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/wo-de-aihao-shi-kan-shu.mp3"
+  },
+  {
+    "id": "tVPUjPNNUMWAMuTXSbq9",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/mingtian-jian.mp3",
+    "zh": "明天见！",
+    "topic": "greetings",
+    "level": 1,
+    "createdAt": 1762097321060,
+    "vi": "Hẹn gặp ngày mai!",
+    "pinyin": "Míngtiān jiàn!"
+  },
+  {
+    "id": "tp5fqWtshsIVLdCfs7tA",
+    "pinyin": "Nǐ hǎo ma?",
+    "level": 1,
+    "createdAt": 1762097333436,
+    "topic": "greetings",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/ni-hao-ma.mp3",
+    "vi": "Bạn khỏe không?",
+    "zh": "你好吗？"
+  },
+  {
+    "id": "twjJVGwEy2Dk2Ph8qzGS",
+    "pinyin": "Tā shì tóngshì.",
+    "zh": "她是同事。",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/ta-shi-tongshi.mp3",
+    "vi": "Cô ấy là đồng nghiệp.",
+    "topic": "introductions",
+    "level": 1,
+    "createdAt": 1762097355722
+  },
+  {
+    "id": "uF61A57y0Fv7ssu8lILE",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/wo-lai-zhongguo-luyou.mp3",
+    "vi": "Tôi đến Trung Quốc du lịch.",
+    "pinyin": "Wǒ lái Zhōngguó lǚyóu.",
+    "topic": "introductions",
+    "createdAt": 1762097365746,
+    "level": 1,
+    "zh": "我来中国旅游。"
+  },
+  {
+    "id": "vbgREVrWqwVYGjyYjdA8",
+    "vi": "Chất lượng rất tốt.",
+    "pinyin": "Zhìliàng hěn hǎo.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/shopping/zhiliang-hen-hao.mp3",
+    "createdAt": 1762097420857,
+    "topic": "shopping",
+    "level": 1,
+    "zh": "质量很好。"
+  },
+  {
+    "id": "vv3bnlYs0OMssKJiccwC",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/jintian-xinqing-hen-hao.mp3",
+    "createdAt": 1762097391268,
+    "pinyin": "Jīntiān xīnqíng hěn hǎo.",
+    "topic": "daily-life",
+    "zh": "今天心情很好。",
+    "vi": "Hôm nay tâm trạng tốt.",
+    "level": 1
+  },
+  {
+    "id": "w4Pp5GwLeajiVONcccOm",
+    "level": 1,
+    "zh": "加油！",
+    "vi": "Cố lên!",
+    "pinyin": "Jiāyóu!",
+    "createdAt": 1762097340047,
+    "topic": "greetings",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/jiayou.mp3"
+  },
+  {
+    "id": "wFrovfhILAxH3A3LsjPZ",
+    "pinyin": "Qǐng zuò.",
+    "createdAt": 1762097330487,
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/greetings/qing-zuo.mp3",
+    "vi": "Mời ngồi.",
+    "zh": "请坐。",
+    "level": 1,
+    "topic": "greetings"
+  },
+  {
+    "id": "xMD1vrSi81cSiyQ3vFmn",
+    "level": 1,
+    "topic": "introductions",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/introductions/qing-duo-zhijiao.mp3",
+    "vi": "Xin chỉ giáo thêm.",
+    "zh": "请多指教。",
+    "pinyin": "Qǐng duō zhǐjiào.",
+    "createdAt": 1762097357052
+  },
+  {
+    "id": "yKK3BHOnXaRhVKlAsNIa",
+    "level": 1,
+    "vi": "Tôi dậy lúc bảy giờ.",
+    "createdAt": 1762097370881,
+    "zh": "我七点起床。",
+    "topic": "daily-life",
+    "pinyin": "Wǒ qī diǎn qǐchuáng.",
+    "audioUrl": "https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev/audio_samples/daily-life/wo-qi-dian-qichuang.mp3"
+  }
+]

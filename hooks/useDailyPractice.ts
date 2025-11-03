@@ -22,17 +22,11 @@ export function useDailyPractice() {
         setLoading(true);
         setError(null);
         
-        // Fetch sentences from all topics
+        // Fetch sentences from all topics (in parallel)
         const topics = ['greetings', 'introductions', 'daily-life', 'shopping', 'food'];
-        const allSentences: any[] = [];
-        for (const topic of topics) {
-          try {
-            const sents = await fetchSentencesByTopic(topic, 100);
-            allSentences.push(...sents);
-          } catch (e) {
-            // Skip if topic doesn't exist
-          }
-        }
+        const topicFetches = topics.map(t => fetchSentencesByTopic(t, 100).catch(() => []));
+        const topicResults = await Promise.all(topicFetches);
+        const allSentences: any[] = topicResults.flat().filter(Boolean);
 
         // Fetch yesterday's progress
         const yesterdayProgress = await fetchYesterdaySentences(user.uid);
@@ -43,7 +37,7 @@ export function useDailyPractice() {
           .map(p => allSentences.find(s => s.id === p.sentenceId))
           .filter(Boolean) as any[];
 
-        // Get all progress to identify new sentences
+        // Get progress for these sentences (batched under the hood)
         const allProgress = await fetchUserProgress(user.uid, allSentences.map(s => s.id));
         const learnedIds = new Set(allProgress.map(p => p.sentenceId));
         const newSentences = allSentences.filter(s => !learnedIds.has(s.id));
@@ -77,7 +71,9 @@ export function useDailyPractice() {
 
         setItems(shuffledFinal);
       } catch (e: any) {
-        throw e;
+        setError(e?.message || 'Failed to load practice set');
+      } finally {
+        setLoading(false);
       }
     })();
   }, [user, authLoading]);

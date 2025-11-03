@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import TopHeader from '@/components/dashboard/TopHeader';
-import { collection, query, orderBy, getDocs, getDoc, doc } from 'firebase/firestore';
+import { collection, query, orderBy, getDocs, getDoc, doc, where } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -42,34 +42,45 @@ export default function ProgressPage() {
     (async () => {
       try {
         setLoading(true);
-        const q = query(
+        const qy = query(
           collection(db, 'users', user.uid, 'user_sentences'),
           orderBy('lastPracticedAt', 'desc')
         );
-        const snap = await getDocs(q);
-        const items: ProgressItem[] = [];
-        
-        for (const docSnap of snap.docs) {
-          const data = docSnap.data();
-          // Fetch sentence details
-          let sentenceData = null;
-          try {
-            const sentDoc = await getDoc(doc(db, 'sentences', docSnap.id));
-            if (sentDoc.exists()) {
-              sentenceData = sentDoc.data();
-              // Resolve topic key to human-friendly name if available
-              if (sentenceData?.topic) {
-                try {
-                  const name = await fetchTopicName(sentenceData.topic as string);
-                  if (name) sentenceData.topic = name;
-                } catch {}
-              }
-            }
-          } catch (e) {
-            throw e;
-          }
+        const snap = await getDocs(qy);
 
-          items.push({
+        // Collect IDs to batch fetch sentences
+        const ids = snap.docs.map(d => d.id);
+        const chunks: string[][] = [];
+        for (let i = 0; i < ids.length; i += 10) chunks.push(ids.slice(i, i + 10));
+
+        const sentencesMap = new Map<string, any>();
+        for (const ch of chunks) {
+          const q2 = query(collection(db, 'sentences'), where('__name__', 'in', ch as any));
+          const s2 = await getDocs(q2);
+          s2.docs.forEach(d => sentencesMap.set(d.id, d.data()));
+        }
+
+        // Resolve topic names in batches to avoid N+1
+        const topicKeys = Array.from(new Set(Array.from(sentencesMap.values()).map((v: any) => v?.topic).filter(Boolean)));
+        const topicNameMap = new Map<string, string>();
+        for (let i = 0; i < topicKeys.length; i += 10) {
+          const part = topicKeys.slice(i, i + 10);
+          try {
+            const q3 = query(collection(db, 'topics'), where('key', 'in', part as any));
+            const s3 = await getDocs(q3);
+            s3.docs.forEach(d => {
+              const data = d.data() as any;
+              if (data?.key && data?.name) topicNameMap.set(data.key, data.name);
+            });
+          } catch {}
+        }
+
+        const items: ProgressItem[] = snap.docs.map(docSnap => {
+          const data = docSnap.data() as any;
+          const sentenceData = sentencesMap.get(docSnap.id) || null;
+          const topicKey = sentenceData?.topic as string | undefined;
+          const topicName = topicKey ? (topicNameMap.get(topicKey) || topicKey) : '';
+          return {
             sentenceId: docSnap.id,
             score: data.score || 0,
             accuracy: data.accuracy,
@@ -83,10 +94,10 @@ export default function ProgressPage() {
               zh: sentenceData.zh || '',
               pinyin: sentenceData.pinyin || '',
               vi: sentenceData.vi || '',
-              topic: sentenceData.topic || '',
+              topic: topicName || '',
             } : undefined,
-          });
-        }
+          };
+        });
 
         setProgress(items);
       } catch (e: any) {
