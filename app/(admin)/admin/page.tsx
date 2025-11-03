@@ -24,12 +24,10 @@ export default function AdminPage() {
     if (!user) { alert('Chưa đăng nhập'); return; }
     const key = topicKey || slugify(topicName);
     try {
-      console.log('Creating topic:', key, 'name:', topicName, 'UID:', user.uid);
       await addDoc(collection(db, 'topics'), { key, name: topicName, createdAt: serverTimestamp() });
       setTopicName(''); setTopicKey('');
       alert('Đã tạo chủ đề');
     } catch (e: any) {
-      console.error('createTopic error:', e, 'Code:', e?.code, 'Message:', e?.message);
       alert('Lỗi: ' + (e?.message || e?.code || 'Unknown') + '. Code: ' + e?.code);
     }
   };
@@ -71,12 +69,10 @@ export default function AdminPage() {
     if (!audioUrl) { alert('Hãy tạo audio trước'); return; }
     if (!user) { alert('Chưa đăng nhập'); return; }
     try {
-      console.log('Saving sentence:', zh, 'UID:', user.uid);
       await addDoc(collection(db, 'sentences'), { topic, zh, pinyin, vi, audioUrl, level: 1, createdAt: Date.now() });
       setZh(''); setPinyin(''); setVi('');
       alert('Đã lưu câu');
     } catch (e: any) {
-      console.error('saveSentence error:', e, 'Code:', e?.code, 'Message:', e?.message);
       alert('Lỗi: ' + (e?.message || e?.code || 'Unknown') + '. Code: ' + e?.code);
     }
   };
@@ -84,11 +80,9 @@ export default function AdminPage() {
   const bootstrapAdmin = async () => {
     if (!user?.uid) { alert('Chưa đăng nhập'); return; }
     try {
-      console.log('Bootstrapping admin for UID:', user.uid);
       await setDoc(doc(db, 'admins', user.uid), { createdAt: serverTimestamp(), email: user.email });
       alert('Đã thêm bạn vào admins. Hãy thử lại.');
     } catch (e: any) {
-      console.error('bootstrapAdmin error:', e, 'Code:', e?.code, 'Message:', e?.message);
       alert('Lỗi: ' + (e?.message || e?.code || 'Unknown') + '. Code: ' + e?.code);
     }
   };
@@ -123,14 +117,11 @@ export default function AdminPage() {
           try {
             const text = await file.text();
             const json = JSON.parse(text);
-            console.log('Importing', json.length, 'topics, UID:', user.uid);
             for (const t of json) {
               const tKey = t.key || slugify(t.name);
-              console.log('Creating topic:', tKey, t.name);
               try {
                 await addDoc(collection(db, 'topics'), { key: tKey, name: t.name, createdAt: serverTimestamp() });
               } catch (e: any) {
-                console.error('Error creating topic:', tKey, 'Code:', e?.code, 'Message:', e?.message);
                 throw e;
               }
               for (const s of t.sentences) {
@@ -153,7 +144,6 @@ export default function AdminPage() {
                   key = `s-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
                 }
                 const path = `audio_samples/${tKey}/${key}.mp3`;
-                console.log('TTS + R2:', path);
                 const r = await fetch('/api/admin/tts-upload', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text: s.zh || s.pinyin || s.vi, path, languageCode: 'zh-CN', speakingRate: rate }) });
                 if (!r.ok) {
                   let errData: any = {};
@@ -162,23 +152,19 @@ export default function AdminPage() {
                   } catch {
                     errData = { error: await r.text() };
                   }
-                  console.error('TTS error:', errData);
                   throw new Error(`TTS failed: ${r.status} - ${errData.error || 'Unknown'}${errData.detail ? ' - ' + errData.detail : ''}${errData.hint ? ' (' + errData.hint + ')' : ''}`);
                 }
                 const data = await r.json();
                 const url = data.url || s.audioUrl || '';
-                console.log('Saving sentence:', s.zh);
                 try {
                   await addDoc(collection(db, 'sentences'), { topic: tKey, zh: s.zh, pinyin: s.pinyin, vi: s.vi, audioUrl: url, level: 1, createdAt: Date.now() });
                 } catch (e: any) {
-                  console.error('Error saving sentence:', s.zh, 'Code:', e?.code, 'Message:', e?.message);
                   throw e;
                 }
               }
             }
             alert('Import xong');
           } catch (err: any) {
-            console.error('Import error:', err, 'Code:', err?.code, 'Message:', err?.message);
             alert('Lỗi: ' + (err?.message || err?.code || 'Unknown') + '. Code: ' + err?.code);
           } finally {
             setImportBusy(false);
@@ -217,7 +203,6 @@ export default function AdminPage() {
               const OLD_URL = 'https://pub-6178945914f04b039aa677fb633b90c4.r2.dev';
               const NEW_URL = 'https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev';
               
-              console.log('Fetching sentences...');
               const q = query(collection(db, 'sentences'));
               const snapshot = await getDocs(q);
               
@@ -235,21 +220,17 @@ export default function AdminPage() {
                 }
                 
                 const newUrl = audioUrl.replace(OLD_URL, NEW_URL);
-                console.log(`Updating ${docSnap.id}: ${audioUrl.substring(0, 50)}...`);
                 
                 try {
                   await updateDoc(doc(db, 'sentences', docSnap.id), { audioUrl: newUrl });
                   updated++;
                 } catch (e: any) {
                   errors.push(`${docSnap.id}: ${e?.message}`);
-                  console.error('Error updating', docSnap.id, e);
                 }
               }
               
               alert(`✅ Đã cập nhật ${updated} câu, bỏ qua ${skipped} câu${errors.length ? `\nLỗi: ${errors.length} câu` : ''}`);
-              if (errors.length) console.error('Errors:', errors);
             } catch (e: any) {
-              console.error('Update error:', e);
               alert('❌ Lỗi: ' + (e?.message || 'Unknown'));
             }
           }}

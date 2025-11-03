@@ -15,10 +15,8 @@ export default function PracticePage() {
   useEffect(() => {
     if (items && items.length > 0) {
       const firstTopicKey = items[0]?.topic;
-      console.log('Practice items loaded, first topic key:', firstTopicKey);
       if (firstTopicKey) {
         fetchTopicName(firstTopicKey).then(name => {
-          console.log('Topic name fetched:', name);
           if (name) {
             setTopic(name);
           } else {
@@ -27,8 +25,7 @@ export default function PracticePage() {
             setTopic(pretty);
           }
         }).catch((e) => {
-          console.error('Failed to fetch topic name:', e);
-          // Keep default if fetch fails
+          throw e;
         });
       }
     }

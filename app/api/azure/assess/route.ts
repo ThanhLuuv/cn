@@ -34,7 +34,6 @@ export async function POST(request: Request) {
     if (attempt > 0) {
       // Exponential backoff: 1s, 2s, 4s
       const delayMs = Math.min(1000 * Math.pow(2, attempt - 1), 5000);
-      console.log(`Azure API retry attempt ${attempt}/${maxRetries} after ${delayMs}ms delay`);
       await new Promise(resolve => setTimeout(resolve, delayMs));
     }
     
@@ -61,7 +60,6 @@ export async function POST(request: Request) {
       
       // If 429 (rate limit) and we have retries left, retry
       if (res.status === 429 && attempt < maxRetries) {
-        console.warn(`Azure API rate limited (429), retrying... (attempt ${attempt + 1}/${maxRetries + 1})`);
         continue;
       }
       
@@ -79,7 +77,7 @@ export async function POST(request: Request) {
     } catch (e: any) {
       lastError = e;
       if (attempt < maxRetries) {
-        console.warn(`Azure API request failed, retrying... (attempt ${attempt + 1}/${maxRetries + 1}):`, e?.message);
+        throw e;
         continue;
       }
     }

@@ -7,7 +7,6 @@ const NEW_URL = 'https://pub-6d6ab55d3a4e4d238a8598295cbf8540.r2.dev';
 
 export async function POST(request: Request) {
   try {
-    console.log('Fetching sentences from Firestore...');
     const q = query(collection(db, 'sentences'));
     const snapshot = await getDocs(q);
     
@@ -26,9 +25,6 @@ export async function POST(request: Request) {
       
       if (audioUrl.includes(OLD_URL)) {
         const newUrl = audioUrl.replace(OLD_URL, NEW_URL);
-        console.log(`Updating: ${docSnap.id}`);
-        console.log(`  Old: ${audioUrl}`);
-        console.log(`  New: ${newUrl}`);
         
         await updateDoc(doc(db, 'sentences', docSnap.id), {
           audioUrl: newUrl,
@@ -49,7 +45,7 @@ export async function POST(request: Request) {
       updates,
     });
   } catch (error: any) {
-    console.error('Error updating R2 URLs:', error);
+    throw error;
     return NextResponse.json(
       { error: 'Failed to update URLs', detail: error?.message },
       { status: 500 }

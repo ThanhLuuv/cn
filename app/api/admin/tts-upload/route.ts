@@ -48,7 +48,6 @@ export async function POST(request: Request) {
 
     return new Response(JSON.stringify({ url, path }), { headers: { 'content-type': 'application/json' } });
   } catch (e: any) {
-    console.error('TTS upload error:', e);
     return new Response(JSON.stringify({ error: 'TTS upload failed', detail: e?.message, code: e?.code }), { status: 500, headers: { 'content-type': 'application/json' } });
   }
 }

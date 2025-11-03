@@ -70,13 +70,11 @@ export const fetchTopicName = async (topicKey: string): Promise<string | null> =
     if (!snapshot.empty) {
       const topicData = snapshot.docs[0].data();
       const name = topicData.name;
-      console.log(`Fetched topic name for "${topicKey}":`, name);
       return name || null;
     }
-    console.warn(`Topic "${topicKey}" not found in Firestore`);
     return null;
   } catch (e) {
-    console.error('Failed to fetch topic name:', e);
+    throw e;
     return null;
   }
 };

@@ -77,14 +77,9 @@ export function useDailyPractice() {
 
         setItems(shuffledFinal);
       } catch (e: any) {
-        console.error('useDailyPractice error:', e);
-        setError(e?.message || 'Failed to load practice sentences');
-      } finally {
-        setLoading(false);
+        throw e;
       }
     })();
   }, [user, authLoading]);
-
-  return { items, loading, error };
+  return { items, loading, error: error || null };
 }
-

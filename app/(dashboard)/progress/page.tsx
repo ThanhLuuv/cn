@@ -6,6 +6,8 @@ import TopHeader from '@/components/dashboard/TopHeader';
 import { collection, query, orderBy, getDocs, getDoc, doc } from 'firebase/firestore';
 import { db } from '@/lib/firebase';
 import { Loader2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { fetchTopicName } from '@/lib/firestore';
 
 type ProgressItem = {
   sentenceId: string;
@@ -29,6 +31,7 @@ export default function ProgressPage() {
   const { user, loading: authLoading } = useAuth();
   const [progress, setProgress] = useState<ProgressItem[]>([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     if (authLoading || !user) {
@@ -54,9 +57,16 @@ export default function ProgressPage() {
             const sentDoc = await getDoc(doc(db, 'sentences', docSnap.id));
             if (sentDoc.exists()) {
               sentenceData = sentDoc.data();
+              // Resolve topic key to human-friendly name if available
+              if (sentenceData?.topic) {
+                try {
+                  const name = await fetchTopicName(sentenceData.topic as string);
+                  if (name) sentenceData.topic = name;
+                } catch {}
+              }
             }
           } catch (e) {
-            console.error('Failed to fetch sentence:', docSnap.id, e);
+            throw e;
           }
 
           items.push({
@@ -80,7 +90,7 @@ export default function ProgressPage() {
 
         setProgress(items);
       } catch (e: any) {
-        console.error('Failed to load progress:', e);
+        throw e;
       } finally {
         setLoading(false);
       }
@@ -90,7 +100,7 @@ export default function ProgressPage() {
   if (authLoading || loading) {
     return (
       <>
-        <TopHeader title="Tiến trình" showBack />
+        <TopHeader title="Lịch sử luyện tập" showBack />
         <main className="grid min-h-[calc(100dvh-64px)] place-items-center">
           <Loader2 className="animate-spin" width={28} height={28} color={'var(--sub)'} />
         </main>
@@ -101,7 +111,7 @@ export default function ProgressPage() {
   if (!user) {
     return (
       <>
-        <TopHeader title="Tiến trình" showBack />
+        <TopHeader title="Lịch sử luyện tập" showBack />
         <main className="mx-auto max-w-3xl p-6">
           <p className="text-center text-gray-600">Bạn chưa đăng nhập.</p>
         </main>
@@ -123,9 +133,8 @@ export default function ProgressPage() {
 
   return (
     <>
-      <TopHeader title="Tiến trình" showBack />
+      <TopHeader title="Lịch sử luyện tập" showBack />
       <main className="mx-auto max-w-4xl p-4 sm:p-6">
-        <h2 className="mb-4 text-2xl font-bold">Câu đã luyện tập</h2>
         {progress.length === 0 ? (
           <p className="text-center text-gray-600">Bạn chưa luyện tập câu nào.</p>
         ) : (
@@ -180,6 +189,15 @@ export default function ProgressPage() {
                       <span>Ngày: {item.date || 'N/A'}</span>
                       <span>Luyện: {item.timesPracticed} lần</span>
                       <span className="text-xs">Chủ đề: {item.sentence.topic || 'N/A'}</span>
+                      <button
+                        className="ml-auto rounded border px-3 py-1 text-xs font-medium hover:bg-white dark:hover:bg-gray-700"
+                        onClick={() => {
+                          try { localStorage.setItem('retrySentenceId', item.sentenceId); } catch {}
+                          router.push('/practice');
+                        }}
+                      >
+                        Luyện lại
+                      </button>
                     </div>
                   </>
                 ) : (

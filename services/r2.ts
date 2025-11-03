@@ -16,13 +16,6 @@ export async function r2PutObject(key: string, body: Uint8Array | Buffer | Array
   const bucketRaw = process.env.CLOUDFLARE_R2_BUCKET_NAME;
   const bucket = bucketRaw?.trim();
   if (!bucket) {
-    console.error('R2 Config:', {
-      enabled,
-      bucketRaw,
-      bucket,
-      hasClient: !!r2Client,
-      endpoint: process.env.CLOUDFLARE_R2_ENDPOINT,
-    });
     throw new Error('CLOUDFLARE_R2_BUCKET_NAME is not set or empty. Check .env.local');
   }
   // Validate bucket name format (R2 buckets follow S3 naming rules)
