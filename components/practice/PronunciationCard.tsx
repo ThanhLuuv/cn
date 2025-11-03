@@ -25,6 +25,7 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
   const [idx, setIdx] = useState(0);
   const [isRecording, setIsRecording] = useState(false);
   const [timerText, setTimerText] = useState('0:00');
+  const [isPlaying, setIsPlaying] = useState(false);
   const [azureScore, setAzureScore] = useState<number | null>(null);
   const [azureBusy, setAzureBusy] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
@@ -34,6 +35,7 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<BlobPart[]>([]);
   const timerRef = useRef<number | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const startTsRef = useRef<number>(0);
 
   const current = dailyData[idx];
@@ -106,10 +108,17 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
     if (!current?.audioUrl) return;
     // Ensure microphone is fully released first (Safari routes audio to earpiece if mic active)
     releaseMic();
+    // Stop any previous playback
+    try { audioRef.current?.pause(); } catch {}
     const audio = new Audio(current.audioUrl);
     // Make sure iOS Safari plays through speaker and inline
     (audio as any).playsInline = true;
     audio.setAttribute('playsinline', 'true');
+    audio.onplay = () => setIsPlaying(true);
+    const clear = () => setIsPlaying(false);
+    audio.onpause = clear;
+    audio.onended = clear;
+    audioRef.current = audio;
     await audio.play().catch(() => {});
   };
 
@@ -205,7 +214,7 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
     }
   };
 
-  useEffect(() => () => { stopTimer(); releaseMic(); }, []);
+  useEffect(() => () => { stopTimer(); releaseMic(); try { audioRef.current?.pause(); } catch {}; }, []);
   
   // Reset timer và recording state khi chuyển câu
   useEffect(() => {
@@ -226,8 +235,12 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
             <h1 className="en" id="text-en">{current.vi || current.pinyin}</h1>
             <p className="ipa" id="text-ipa">{current.pinyin}</p>
           </div>
-          <button className="speak-btn" id="btn-play" aria-label="Play audio" onClick={playAudio}>
-            <Volume2 color={'var(--speaker)'} width={26} height={26} />
+          <button className={`speak-btn${isPlaying ? ' playing' : ''}`} id="btn-play" aria-label="Play audio" onClick={playAudio}>
+            {isPlaying ? (
+              <Loader2 color={'var(--speaker)'} width={26} height={26} className="animate-spin" />
+            ) : (
+              <Volume2 color={'var(--speaker)'} width={26} height={26} />
+            )}
           </button>
         </div>
 
