@@ -2,21 +2,38 @@
 
 import { loginWithGoogle, loginWithEmail } from '@/lib/auth';
 import { ensureUserDoc } from '@/lib/firestore';
+import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useState } from 'react';
+import { Loader2 } from 'lucide-react';
 
 export default function LoginPage() {
   const r = useRouter();
+  const { loading: authLoading } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
   const submit = async () => {
-    const cred = await loginWithEmail(email, password);
-    const u = cred.user;
-    if (u?.uid) await ensureUserDoc(u.uid, { email: u.email ?? '' });
-    r.push('/');
+    try {
+      setSubmitting(true);
+      const cred = await loginWithEmail(email, password);
+      const u = cred.user;
+      if (u?.uid) await ensureUserDoc(u.uid, { email: u.email ?? '' });
+      r.push('/');
+    } finally {
+      setSubmitting(false);
+    }
   };
+
+  if (authLoading) {
+    return (
+      <main className="grid min-h-dvh place-items-center">
+        <Loader2 className="animate-spin" width={28} height={28} color={'var(--sub)'} />
+      </main>
+    );
+  }
 
   return (
     <main className="w-full px-4 py-8">
@@ -55,23 +72,30 @@ export default function LoginPage() {
 
             <button
               onClick={submit}
-              className="mt-2 w-full rounded-xl px-4 py-3 text-center text-sm font-semibold text-white shadow-md transition hover:brightness-110"
+              className="mt-2 w-full rounded-xl px-4 py-3 text-center text-sm font-semibold text-white shadow-md transition hover:brightness-110 disabled:opacity-70"
               style={{ background: 'var(--accent)', boxShadow: '0 6px 0 var(--accent-dark)' }}
               type="submit"
+              disabled={submitting}
             >
-              Đăng nhập
+              {submitting ? <span className="inline-flex items-center justify-center gap-2"><Loader2 className="animate-spin" width={18} height={18} /> Đang đăng nhập...</span> : 'Đăng nhập'}
             </button>
             <button
               onClick={async () => {
-                const cred = await loginWithGoogle();
-                const u = cred.user;
-                if (u?.uid) await ensureUserDoc(u.uid, { email: u.email ?? '', name: u.displayName ?? '' });
-                r.push('/');
+                try {
+                  setSubmitting(true);
+                  const cred = await loginWithGoogle();
+                  const u = cred.user;
+                  if (u?.uid) await ensureUserDoc(u.uid, { email: u.email ?? '', name: u.displayName ?? '' });
+                  r.push('/');
+                } finally {
+                  setSubmitting(false);
+                }
               }}
-              className="w-full rounded-xl border px-4 py-3 text-sm font-medium transition hover:bg-white"
+              className="w-full rounded-xl border px-4 py-3 text-sm font-medium transition hover:bg-white disabled:opacity-70"
               type="button"
+              disabled={submitting}
             >
-              Đăng nhập với Google
+              {submitting ? <span className="inline-flex items-center justify-center gap-2"><Loader2 className="animate-spin" width={18} height={18} /> Đang xử lý...</span> : 'Đăng nhập với Google'}
             </button>
           </form>
 
