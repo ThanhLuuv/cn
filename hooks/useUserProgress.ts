@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { db } from '@/lib/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { toYMD } from '@/utils/date';
 
 type DayStat = { date: string; count: number; avg: number };
@@ -13,6 +13,7 @@ export function useUserProgress() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [docs, setDocs] = useState<Array<{ date: string; score: number }>>([]);
+  const [attemptsToday, setAttemptsToday] = useState(0);
 
   useEffect(() => {
     let cancelled = false;
@@ -29,6 +30,15 @@ export function useUserProgress() {
           score: typeof v.score === 'number' ? v.score : 0,
         }));
         setDocs(rows);
+
+        // Load attempts for today from stats doc
+        try {
+          const todayKey = toYMD();
+          const sref = doc(db, 'users', user.uid, 'stats', todayKey);
+          const sdoc = await getDoc(sref);
+          const attempts = (sdoc.data() as any)?.attempts || 0;
+          setAttemptsToday(attempts);
+        } catch {}
       } catch (e: any) {
         if (!cancelled) setError(e?.message ?? 'Failed to load progress');
       } finally {
@@ -57,7 +67,7 @@ export function useUserProgress() {
     const avgScore = totalPracticed ? docs.reduce((s, r) => s + r.score, 0) / totalPracticed : 0;
     const today = toYMD();
     const todayGroup = grouped.find(g => g.date === today);
-    const todayCount = todayGroup?.count ?? 0;
+    const todayCount = attemptsToday || (todayGroup?.count ?? 0);
     const todayAvgScore = todayGroup?.avg ?? 0;
     // Basic streak: consecutive days ending today with at least one practice
     let streak = 0;
@@ -68,7 +78,7 @@ export function useUserProgress() {
       if (daysSet.has(key)) { streak++; d.setDate(d.getDate() - 1); } else { break; }
     }
     return { totalPracticed, avgScore, todayCount, todayAvgScore, streak };
-  }, [docs, grouped]);
+  }, [docs, grouped, attemptsToday]);
 
   const last7 = useMemo(() => {
     // Last 7 calendar days including today

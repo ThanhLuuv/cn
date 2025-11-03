@@ -1,21 +1,35 @@
 export async function webmBlobToWav(blob: Blob, targetSampleRate = 16000): Promise<ArrayBuffer> {
+  // Note: Despite the name, this function accepts ANY audio Blob that the
+  // browser can decode (webm/opus, mp4/aac, wav, etc.). Safari iOS typically
+  // records as audio/mp4, while Chrome uses audio/webm. We simply feed the raw
+  // bytes into decodeAudioData and resample to mono PCM16 WAV.
   const arrayBuffer = await blob.arrayBuffer();
   const AudioCtx: typeof AudioContext = (window as any).AudioContext || (window as any).webkitAudioContext;
   if (!AudioCtx) throw new Error('Web Audio API not supported');
   const ctx = new AudioCtx();
-  const decoded = await ctx.decodeAudioData(arrayBuffer);
-  const duration = decoded.duration;
-  const offline = new (window as any).OfflineAudioContext(1, Math.ceil(duration * targetSampleRate), targetSampleRate);
-  const source = offline.createBufferSource();
-  source.buffer = decoded;
-  source.connect(offline.destination);
-  source.start(0);
-  const rendered = await offline.startRendering();
-  const chData = rendered.getChannelData(0);
-  // PCM16 WAV encoding
-  const wavBuffer = encodeWavPCM16(chData, targetSampleRate);
-  ctx.close();
-  return wavBuffer;
+  try {
+    const decoded: AudioBuffer = await new Promise((resolve, reject) => {
+      // Some Safari builds are finicky with the promise form; prefer callback.
+      try {
+        (ctx as any).decodeAudioData(arrayBuffer, (buf: AudioBuffer) => resolve(buf), (err: any) => reject(err));
+      } catch {
+        ctx.decodeAudioData(arrayBuffer).then(resolve).catch(reject);
+      }
+    });
+    const duration = decoded.duration;
+    const offline = new (window as any).OfflineAudioContext(1, Math.ceil(duration * targetSampleRate), targetSampleRate);
+    const source = offline.createBufferSource();
+    source.buffer = decoded;
+    source.connect(offline.destination);
+    source.start(0);
+    const rendered = await offline.startRendering();
+    const chData = rendered.getChannelData(0);
+    // PCM16 WAV encoding
+    const wavBuffer = encodeWavPCM16(chData, targetSampleRate);
+    return wavBuffer;
+  } finally {
+    try { ctx.close(); } catch {}
+  }
 }
 
 function encodeWavPCM16(samples: Float32Array, sampleRate: number): ArrayBuffer {

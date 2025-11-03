@@ -16,6 +16,12 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
     { zh: '你最近怎么样？', pinyin: 'Nǐ zuìjìn zěnme yàng?', topic: 'Greetings and Introductions' },
   ], [items]);
 
+  // Limit daily practice to first 10 items; wrap within these 10
+  const dailyData = useMemo(() => {
+    const MAX = 10;
+    return data.slice(0, MAX);
+  }, [data]);
+
   const [idx, setIdx] = useState(0);
   const [isRecording, setIsRecording] = useState(false);
   const [timerText, setTimerText] = useState('0:00');
@@ -30,14 +36,14 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
   const timerRef = useRef<number | null>(null);
   const startTsRef = useRef<number>(0);
 
-  const current = data[idx];
+  const current = dailyData[idx];
 
   useEffect(() => {
     if (onResolveTopic) {
-      const t = data[0]?.topic || 'Practice';
+      const t = dailyData[0]?.topic || 'Practice';
       onResolveTopic(t);
     }
-  }, [data, onResolveTopic]);
+  }, [dailyData, onResolveTopic]);
 
   useEffect(() => {
     if (azureScore != null) setShowOverlay(true);
@@ -88,9 +94,22 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
     }
   };
 
+  const releaseMic = () => {
+    const rec = mediaRecorderRef.current;
+    if (!rec) return;
+    try { if (rec.state && rec.state !== 'inactive') rec.stop(); } catch {}
+    try { rec.stream?.getTracks?.().forEach((t: MediaStreamTrack) => t.stop()); } catch {}
+    mediaRecorderRef.current = null;
+  };
+
   const playAudio = async () => {
     if (!current?.audioUrl) return;
+    // Ensure microphone is fully released first (Safari routes audio to earpiece if mic active)
+    releaseMic();
     const audio = new Audio(current.audioUrl);
+    // Make sure iOS Safari plays through speaker and inline
+    (audio as any).playsInline = true;
+    audio.setAttribute('playsinline', 'true');
     await audio.play().catch(() => {});
   };
 
@@ -103,6 +122,8 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
       return;
     }
     try {
+      // Stop any previous streams before requesting a new one
+      releaseMic();
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       const recorder = new MediaRecorder(stream);
       mediaRecorderRef.current = recorder;
@@ -110,7 +131,8 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
       recorder.ondataavailable = (e: BlobEvent) => { if (e.data.size) chunksRef.current.push(e.data); };
       recorder.onstop = async () => {
         try {
-          const blob = new Blob(chunksRef.current, { type: 'audio/webm' });
+          const mime = (recorder as any).mimeType || 'audio/webm';
+          const blob = new Blob(chunksRef.current, { type: mime });
           const wav = await webmBlobToWav(blob, 16000);
           setAzureBusy(true);
           const fd = new FormData();
@@ -171,6 +193,8 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
           setAzureScore(null);
         } finally {
           setAzureBusy(false);
+          // Fully stop input to prevent Safari output ducking
+          releaseMic();
         }
       };
       recorder.start();
@@ -181,7 +205,7 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
     }
   };
 
-  useEffect(() => () => { stopTimer(); }, []);
+  useEffect(() => () => { stopTimer(); releaseMic(); }, []);
   
   // Reset timer và recording state khi chuyển câu
   useEffect(() => {
@@ -189,14 +213,8 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
     setIsRecording(false);
     setTimerText('0:00');
     setAzureBusy(false);
-    // Stop recording nếu đang ghi
-    if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
-      try {
-        mediaRecorderRef.current.stop();
-      } catch (e) {
-        // ignore
-      }
-    }
+    // Fully release microphone when switching items
+    releaseMic();
   }, [idx]);
 
   return (
@@ -234,10 +252,10 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
         </div>
 
         <div className="nav">
-          <button className="icon-btn" id="btn-prev" aria-label="Previous" onClick={() => setIdx((idx - 1 + data.length) % data.length)}>
+          <button className="icon-btn" id="btn-prev" aria-label="Previous" onClick={() => setIdx((idx - 1 + dailyData.length) % dailyData.length)}>
             <ChevronLeft color={'var(--text)'} width={24} height={24} />
           </button>
-          <button className="icon-btn" id="btn-next" aria-label="Next" onClick={() => setIdx((idx + 1) % data.length)}>
+          <button className="icon-btn" id="btn-next" aria-label="Next" onClick={() => setIdx((idx + 1) % dailyData.length)}>
             <ChevronRight color={'var(--text)'} width={24} height={24} />
           </button>
         </div>
@@ -253,8 +271,8 @@ export default function PronunciationCard({ items, onResolveTopic }: { items: It
             setMetrics(null);
             setWordResults([]);
             setConfetti([]);
-            // Chuyển sang câu tiếp theo
-            setIdx((idx + 1) % data.length);
+            // Chuyển sang câu tiếp theo trong bộ 10 câu của ngày
+            setIdx((idx + 1) % dailyData.length);
           }}
           role="dialog"
           aria-modal="true"

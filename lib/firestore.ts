@@ -1,5 +1,5 @@
 import { db } from './firebase';
-import { doc, setDoc, getDoc, collection, query, where, getDocs, orderBy, serverTimestamp } from 'firebase/firestore';
+import { doc, setDoc, getDoc, collection, query, where, getDocs, orderBy, serverTimestamp, increment } from 'firebase/firestore';
 
 export const ensureUserDoc = async (uid: string, payload: any) => {
   const ref = doc(db, 'users', uid);
@@ -34,6 +34,9 @@ export const saveUserSentenceProgress = async (uid: string, sentenceId: string, 
     createdAt: existing?.createdAt || serverTimestamp(),
     updatedAt: serverTimestamp(),
   }, { merge: true });
+  // Increment today's attempt counter
+  const statsRef = doc(db, 'users', uid, 'stats', today);
+  await setDoc(statsRef, { date: today, attempts: increment(1), updatedAt: serverTimestamp(), createdAt: serverTimestamp() }, { merge: true });
 };
 
 // Fetch user progress for sentences
